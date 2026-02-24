@@ -140,6 +140,7 @@
             align-items: center;                
             margin-top: 10px;       
             width: 100%;
+            gap: 10px;
         }
         .btn-docs{
             display: inline-block; padding: 15px 35px; background: var(--navy-blue);
@@ -148,6 +149,27 @@
             align-items:center; justify-content: center;
         }
         .btn-docs:hover { 
+            background: var(--soft-blue); transform: scale(1.05); 
+            border: var(--navy-blue) 2px solid;
+            color: var(--navy-blue);
+        }
+        .btn-demo{
+            display: inline-block; padding: 15px 35px; background: var(--soft-blue); 
+            color: var(--navy-blue); text-decoration: none; border-radius: 50px; font-weight: bold;
+            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
+            align-items:center; justify-content: center;
+        }
+        .btn-demo:hover { 
+            transform: scale(1.05); 
+            border: var(--navy-blue) 2px solid;
+        }
+        .btn-git {
+            display: inline-flex; padding: 12px 25px; background-color: var(--dark); 
+            color: var(--sand); text-decoration: none; border-radius: 50px;
+            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
+            align-items:center; justify-content: center;
+        }
+        .btn-git:hover {
             background: var(--soft-blue); transform: scale(1.05); 
             border: var(--navy-blue) 2px solid;
             color: var(--navy-blue);
@@ -339,4 +361,14 @@
 
         .option-card:hover {
             transform: translateY(-5px);
+        }
+
+        /* --- SECTION VEILLE  --- */
+        .card-veille {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            border-bottom: 8px solid var(--navy-blue);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
         }
