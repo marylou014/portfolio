@@ -3,6 +3,7 @@
             --sand: #FDFBF7;
             --navy-blue: #0052a3;
             --soft-blue: #E0EAFC;
+            --pop-blue: #6b9efd;
             --dark: #2B2D42;
             --sidebar-width: 280px;
         }
@@ -183,4 +184,97 @@
             background: var(--soft-blue); transform: scale(1.05); 
             border: var(--navy-blue) 2px solid;
             color: var(--navy-blue);
+        }
+
+    /* --- SECTION PARCOURS (ET LES TIMELINES)  --- */
+
+        /* On s'assure que le container laisse assez de place à gauche pour la date */
+        .timeline-column {
+            width: 100%;
+            max-width: 750px; 
+            position: relative;
+            padding-left: 25px; /* Augmenté pour laisser de la place à la date à gauche */
+            margin: 0 auto;
+        }
+
+        /* La ligne verticale décalée pour correspondre au nouveau padding */
+        .timeline-column::before {
+            content: '';
+            position: absolute;
+            left: 1px; /* Aligné avec les points */
+            top: 10px;
+            bottom: 0;
+            width: 3px;
+            background: var(--navy-blue);
+            opacity: 0.15;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        /* La date positionnée à gauche de la ligne */
+        .timeline-date {
+            position: absolute;
+            left: -150px; /* Pousse la date à gauche de la ligne */
+            top: 45px;    /* Aligné avec le haut de la carte */
+            width: 110px; /* Largeur fixe pour un alignement propre */
+            text-align: right;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--navy-blue);
+        }
+
+        .date-pro {
+            color: var(--pop-blue);
+        }
+
+        /* Le point sur la ligne */
+        .timeline-dot {
+            position: absolute;
+            left: -30px; /* Ajusté par rapport au padding-left de la colonne */
+            top: 45px;
+            width: 16px;
+            height: 16px;
+            background: var(--navy-blue);
+            border-radius: 50%;
+            border: 3px solid white;
+            z-index: 2;
+        }
+
+        .dot-pro { background: var(--pop-blue); } 
+
+        /* La carte reste centrée par rapport à la colonne */
+        .timeline-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            border-bottom: 6px solid var(--navy-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card-pro {
+            border-bottom: 8px solid var(--pop-blue) !important;
+        }
+
+        .lieux {
+            color: var(--navy-blue);
+            margin-top: 5px;
+            font-size: smaller;
+        }
+
+        .lieux-pro {
+            color: var(--pop-blue);
+            margin-top: 5px;
+            font-size: smaller;
+        }
+        
+        #parcours p,
+        #stage p
+        {
+            font-size: smaller;
         }
