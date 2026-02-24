@@ -42,6 +42,27 @@
             object-fit: cover;
             transition: 0.3s;
         }
+        .lien{
+            display: inline-flex; padding: 15px 15px; background-color: var(--navy-blue); 
+            color: var(--sand); text-decoration: none; border-radius: 50px;
+            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
+            align-items:center; justify-content: center;
+        }
+        .lien:hover {
+            background: var(--soft-blue); transform: scale(1.05); 
+            border: var(--navy-blue) 2px solid;
+            color: var(--navy-blue);
+        }
+
+        #bouton-contact {
+            display: flex;
+            justify-content: center; 
+            align-items: center;                
+            margin-top: 10px;       
+            width: 100%;
+            gap: 10px;
+        }
+        
 
         .nav-links { list-style: none; width: 100%; margin-top: 20px; }
         .nav-links li { margin: 10px 0; }
