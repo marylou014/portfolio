@@ -103,7 +103,7 @@
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(54, 54, 120, 0.2); }
 
-        /* --- MODALE --- */
+        /* --- pop up --- */
         .modal {
             display: none;
             position: fixed;
@@ -127,6 +127,32 @@
             margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
         }
         .btn:hover { background: var(--dark); transform: scale(1.05); }
+
+        .titre-popup {
+            color: var(--pop-blue);
+            font-size: x-large;
+            margin-bottom: 20px;
+        }
+
+        .btn-container-popup {
+            display: flex;
+            justify-content: center; 
+            align-items: center;                
+            margin-top: 10px;       
+            width: 100%;
+        }
+        .btn-docs{
+            display: inline-block; padding: 15px 35px; background: var(--navy-blue);
+            color: white; text-decoration: none; border-radius: 50px; font-weight: bold;
+            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
+            align-items:center; justify-content: center;
+        }
+        .btn-docs:hover { 
+            background: var(--soft-blue); transform: scale(1.05); 
+            border: var(--navy-blue) 2px solid;
+            color: var(--navy-blue);
+        }
+
 
 /* --- Spécifique pour les sections --- */
 
