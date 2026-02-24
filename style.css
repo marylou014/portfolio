@@ -1,0 +1,130 @@
+
+        :root {
+            --sand: #FDFBF7;
+            --pop-blue: #3A86FF;
+            --soft-blue: #E0EAFC;
+            --dark: #2B2D42;
+            --sidebar-width: 280px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--soft-blue); /* Le fond derrière la carte */
+            color: var(--dark);
+            display: flex;
+        }
+
+        /* --- SIDEBAR FIXE --- */
+        nav {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: white;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            border-right: 4px solid var(--pop-blue);
+            z-index: 100;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid var(--pop-blue);
+            margin-bottom: 15px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .profile-pic:hover { transform: rotate(5deg) scale(1.05); }
+
+        .nav-links { list-style: none; width: 100%; margin-top: 20px; }
+        .nav-links li { margin: 10px 0; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            display: block;
+            padding: 12px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { background: var(--pop-blue); color: white; }
+
+        /* --- CONTENEUR DE SCROLL --- */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            width: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px; /* Espace entre les sections */
+        }
+
+        .section-card {
+            background: var(--sand);
+            width: 100%;
+            max-width: 1000px;
+            padding: 60px;
+            border-radius: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            min-height: 80vh; /* Chaque section prend presque tout l'écran */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 { font-size: 4rem; color: var(--pop-blue); line-height: 1.1; }
+        h2 { font-size: 2.5rem; margin-bottom: 30px; position: relative; }
+        h2::after { content: ''; display: block; width: 60px; height: 6px; background: var(--pop-blue); margin-top: 10px; border-radius: 10px; }
+
+        /* --- GRILLES PROJETS & STAGES --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            border-bottom: 8px solid var(--pop-blue);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(58, 134, 255, 0.2); }
+
+        /* --- MODALE --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(26, 42, 68, 0.8);
+            backdrop-filter: blur(8px);
+            justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: var(--sand); padding: 50px; border-radius: 35px;
+            max-width: 700px; width: 90%; position: relative;
+            animation: pop 0.3s ease;
+        }
+        @keyframes pop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .close { position: absolute; right: 30px; top: 20px; font-size: 30px; cursor: pointer; color: var(--pop-blue); }
+
+        .btn {
+            display: inline-block; padding: 15px 35px; background: var(--pop-blue);
+            color: white; text-decoration: none; border-radius: 50px; font-weight: bold;
+            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
+        }
+        .btn:hover { background: var(--dark); transform: scale(1.05); }
+
