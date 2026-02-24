@@ -20,6 +20,7 @@ Contrairement à un site statique classique où tout est dans un seul fichier, j
 ├── index.html          # Squelette principal avec la barre de nav et les différentes cartes
 ├── style.css           # Design global et animations
 ├── script.js           # Script pour les parties Java globales
+├── docs/               # Dossier pour les différents documents 
 ├── img/                # Dossier pour les images 
 └── sections/           # Dossier avec les différents codes de chaque section
     ├── moi.html

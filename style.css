@@ -1,7 +1,7 @@
 
         :root {
             --sand: #FDFBF7;
-            --pop-blue: #3A86FF;
+            --navy-blue: #0052a3;
             --soft-blue: #E0EAFC;
             --dark: #2B2D42;
             --sidebar-width: 280px;
@@ -18,7 +18,7 @@
             display: flex;
         }
 
-        /* --- SIDEBAR FIXE --- */
+        /* --- SIDEBAR --- */
         nav {
             width: var(--sidebar-width);
             height: 100vh;
@@ -28,7 +28,7 @@
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
-            border-right: 4px solid var(--pop-blue);
+            border-right: 4px solid var(--navy-blue);
             z-index: 100;
         }
 
@@ -36,12 +36,11 @@
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            border: 5px solid var(--pop-blue);
+            border: 5px solid var(--navy-blue);
             margin-bottom: 15px;
             object-fit: cover;
             transition: 0.3s;
         }
-        .profile-pic:hover { transform: rotate(5deg) scale(1.05); }
 
         .nav-links { list-style: none; width: 100%; margin-top: 20px; }
         .nav-links li { margin: 10px 0; }
@@ -55,7 +54,7 @@
             text-align: center;
             transition: 0.3s;
         }
-        .nav-links a:hover { background: var(--pop-blue); color: white; }
+        .nav-links a:hover { background: var(--navy-blue); color: white; }
 
         /* --- CONTENEUR DE SCROLL --- */
         .main-content {
@@ -81,9 +80,9 @@
             justify-content: center;
         }
 
-        h1 { font-size: 4rem; color: var(--pop-blue); line-height: 1.1; }
+        h1 { font-size: 4rem; color: var(--navy-blue); line-height: 1.1; }
         h2 { font-size: 2.5rem; margin-bottom: 30px; position: relative; }
-        h2::after { content: ''; display: block; width: 60px; height: 6px; background: var(--pop-blue); margin-top: 10px; border-radius: 10px; }
+        h2::after { content: ''; display: block; width: 60px; height: 6px; background: var(--navy-blue); margin-top: 10px; border-radius: 10px; }
 
         /* --- GRILLES PROJETS & STAGES --- */
         .grid {
@@ -97,11 +96,11 @@
             background: white;
             padding: 30px;
             border-radius: 25px;
-            border-bottom: 8px solid var(--pop-blue);
+            border-bottom: 8px solid var(--navy-blue);
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(58, 134, 255, 0.2); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(54, 54, 120, 0.2); }
 
         /* --- MODALE --- */
         .modal {
@@ -119,12 +118,69 @@
             animation: pop 0.3s ease;
         }
         @keyframes pop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .close { position: absolute; right: 30px; top: 20px; font-size: 30px; cursor: pointer; color: var(--pop-blue); }
+        .close { position: absolute; right: 30px; top: 20px; font-size: 30px; cursor: pointer; color: var(--navy-blue); }
 
         .btn {
-            display: inline-block; padding: 15px 35px; background: var(--pop-blue);
+            display: inline-block; padding: 15px 35px; background: var(--navy-blue);
             color: white; text-decoration: none; border-radius: 50px; font-weight: bold;
             margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
         }
         .btn:hover { background: var(--dark); transform: scale(1.05); }
 
+/* --- Spécifique pour les sections --- */
+
+    /* --- SECTION MOI --- */
+        /* Alignement côte à côte */
+        .info {
+            display: flex;
+            gap: 40px; /* Espace entre les deux colonnes */
+            margin-top: 20px;
+            flex-wrap: wrap; /* Pour que ça passe l'un sous l'autre sur petit écran */
+        }
+
+        .un, .deux {
+            flex: 1; /* prend la même largeur */
+            min-width: 250px; /* Largeur minimum avant de passer à la ligne */
+        }
+
+        #diplome {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        #diplome li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+
+        /* On ajoute des puces bleues personnalisées */
+        #diplome li::before {
+            content: "•";
+            color: var(--navy-blue);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center; 
+            align-items: center;                
+            margin-top: 40px;       
+            width: 100%;
+        }
+
+        .btn-cv {
+            display: inline-block; padding: 15px 35px; background: var(--navy-blue);
+            color: white; text-decoration: none; border-radius: 50px; font-weight: bold;
+            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
+            align-items:center; justify-content: center;
+        }
+        .btn-cv:hover { 
+            background: var(--soft-blue); transform: scale(1.05); 
+            border: var(--navy-blue) 2px solid;
+            color: var(--navy-blue);
+        }
