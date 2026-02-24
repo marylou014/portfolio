@@ -37,7 +37,7 @@
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            border: 5px solid var(--navy-blue);
+            border: 2px solid var(--navy-blue);
             margin-bottom: 15px;
             object-fit: cover;
             transition: 0.3s;
