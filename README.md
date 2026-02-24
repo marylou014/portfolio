@@ -28,7 +28,6 @@ Contrairement à un site statique classique où tout est dans un seul fichier, j
     ├── stages.html
     ├── veilles.html
     └── contact.html
-
 ```
 
 ### Méthode de structure : "L'Injection de Composants"
@@ -52,4 +51,4 @@ Comme le projet utilise des requêtes `fetch()` pour charger les sections, il n�
 2. Ouvrir avec un serveur local (ex: extension **Live Server** sur VS Code).
 3. L'index chargera automatiquement tous les modules.
 
-_PS : oui l'IA m’a un peu aidé pour le README, et en cas de soucis sur mon code_
+_PS : oui l'IA m’a un peu aidé pour le README, et en cas de soucis sur mon code (surtout le css)_
