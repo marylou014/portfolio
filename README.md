@@ -22,6 +22,7 @@ Contrairement à un site statique classique où tout est dans un seul fichier, j
 ├── script.js           # Script pour les parties Java globales
 ├── docs/               # Dossier pour les différents documents 
 ├── img/                # Dossier pour les images 
+├── pop-up/             # Dossier pour les pop-up (fichier html) 
 └── sections/           # Dossier avec les différents codes de chaque section
     ├── moi.html
     ├── parcours.html
