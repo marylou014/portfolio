@@ -372,3 +372,39 @@
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
         }
+        #veille-titre {
+            color: var(--navy-blue);
+            font-size: larger;
+            margin-bottom: 10px;
+        }
+
+        /* --- SECTION CONTACT  --- */
+        .contact-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Garde le titre au centre */
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%; /* Prend toute la largeur du parent */
+            box-sizing: border-box; /* Évite que les paddings ne fassent déborder */
+        }
+
+        /* Style des champs pour qu'ils soient propres sur toute la largeur */
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%; 
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid var(--soft-blue);
+            background-color: white;
+            box-sizing: border-box; /* Crucial pour la largeur 100% */
+        }
+
+        .contact-form .btn {
+            width: 100%; /* Le bouton prend aussi toute la largeur */
+        }
