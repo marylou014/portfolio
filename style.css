@@ -1,433 +1,630 @@
+:root {
+    --sand: #FDFBF7;
+    --navy-blue: #0052a3;
+    --soft-blue: #E0EAFC;
+    --pop-blue: #6b9efd;
+    --dark: #2B2D42;
+    --sidebar-width: 280px;
+}
 
-        :root {
-            --sand: #FDFBF7;
-            --navy-blue: #0052a3;
-            --soft-blue: #E0EAFC;
-            --pop-blue: #6b9efd;
-            --dark: #2B2D42;
-            --sidebar-width: 280px;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+    scroll-behavior: smooth;
+}
 
-        html { scroll-behavior: smooth; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--soft-blue);
+    /* Le fond derrière la carte */
+    color: var(--dark);
+    display: block;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--soft-blue); /* Le fond derrière la carte */
-            color: var(--dark);
-            display: flex;
-        }
+/* --- ACCUEIL --- */
+.acceuil {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--sand);
+    position: relative;
+    z-index: 101;
+    /* Doit être au-dessus de la nav pour la cacher au début */
+}
 
-        /* --- SIDEBAR --- */
-        nav {
-            width: var(--sidebar-width);
-            height: 100vh;
-            background: white;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            border-right: 4px solid var(--navy-blue);
-            z-index: 100;
-        }
+/* --- SIDEBAR (NAV) --- */
+nav {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--sand);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    border-right: 4px solid var(--navy-blue);
+    z-index: 100;
+    /* Un cran en dessous de l'accueil */
+}
 
-        .profile-pic {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 2px solid var(--navy-blue);
-            margin-bottom: 15px;
-            object-fit: cover;
-            transition: 0.3s;
-        }
-        .lien{
-            display: inline-flex; padding: 15px 15px; background-color: var(--navy-blue); 
-            color: var(--sand); text-decoration: none; border-radius: 50px;
-            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
-            align-items:center; justify-content: center;
-        }
-        .lien:hover {
-            background: var(--soft-blue); transform: scale(1.05); 
-            border: var(--navy-blue) 2px solid;
-            color: var(--navy-blue);
-        }
+/* --- CONTENEUR DE SCROLL --- */
+.main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
 
-        #bouton-contact {
-            display: flex;
-            justify-content: center; 
-            align-items: center;                
-            margin-top: 3px; 
-            width: 100%;
-            gap: 10px;
-        }
-        
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px solid var(--navy-blue);
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: 0.3s;
+}
 
-        .nav-links { list-style: none; width: 100%; margin-top: 20px; }
-        .nav-links li { margin: 10px 0; }
-        .nav-links a {
-            text-decoration: none;
-            background-color: var(--soft-blue);
-            border-radius: 5px;
-            color: var(--navy-blue);
-            font-weight: 600;
-            display: block;
-            padding: 12px;
-            border-radius: 15px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .nav-links a:hover { background: var(--navy-blue); color: white; }
+.lien {
+    display: inline-flex;
+    padding: 15px 15px;
+    background-color: var(--navy-blue);
+    color: var(--sand);
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* --- CONTENEUR DE SCROLL --- */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            width: 100%;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px; /* Espace entre les sections */
-        }
+.lien:hover {
+    background: var(--soft-blue);
+    transform: scale(1.05);
+    border: var(--navy-blue) 2px solid;
+    color: var(--navy-blue);
+}
 
-        .section-card {
-            background: var(--sand);
-            width: 100%;
-            max-width: 1000px;
-            padding: 60px;
-            border-radius: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            min-height: 80vh; /* Chaque section prend presque tout l'écran */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+#bouton-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3px;
+    width: 100%;
+    gap: 10px;
+}
 
-        h1 { font-size: 4rem; color: var(--navy-blue); line-height: 1.1; }
-        h2 { font-size: 2.5rem; margin-bottom: 30px; position: relative; }
-        h2::after { content: ''; display: block; width: 60px; height: 6px; background: var(--navy-blue); margin-top: 10px; border-radius: 10px; }
 
-        /* --- GRILLES PROJETS & STAGES --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
+.nav-links {
+    list-style: none;
+    width: 100%;
+    margin-top: 20px;
+}
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
-            border-bottom: 8px solid var(--navy-blue);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(54, 54, 120, 0.2); }
+.nav-links li {
+    margin: 10px 0;
+}
 
-        /* --- pop up --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(26, 42, 68, 0.8);
-            backdrop-filter: blur(8px);
-            justify-content: center; align-items: center;
-        }
-        .modal-content {
-            background: var(--sand); padding: 50px; border-radius: 35px;
-            max-width: 700px; width: 90%; position: relative;
-            animation: pop 0.3s ease;
-        }
-        @keyframes pop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .close { position: absolute; right: 30px; top: 20px; font-size: 30px; cursor: pointer; color: var(--navy-blue); }
+.nav-links a {
+    text-decoration: none;
+    background-color: var(--soft-blue);
+    border-radius: 5px;
+    color: var(--navy-blue);
+    font-weight: 600;
+    display: block;
+    padding: 12px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
 
-        .btn {
-            display: inline-block; padding: 15px 35px; background: var(--navy-blue);
-            color: white; text-decoration: none; border-radius: 50px; font-weight: bold;
-            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
-        }
-        .btn:hover { background: var(--dark); transform: scale(1.05); }
+.nav-links a:hover {
+    background: var(--navy-blue);
+    color: white;
+}
 
-        .titre-popup {
-            color: var(--pop-blue);
-            font-size: x-large;
-            margin-bottom: 20px;
-        }
+/* --- CONTENEUR DE SCROLL --- */
+.main-content {
+    margin-left: var(--sidebar-width);
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    /* Espace entre les sections */
+}
 
-        .btn-container-popup {
-            display: flex;
-            justify-content: center; 
-            align-items: center;                
-            margin-top: 10px;       
-            width: 100%;
-            gap: 10px;
-        }
-        .btn-docs{
-            display: inline-block; padding: 15px 35px; background: var(--navy-blue);
-            color: white; text-decoration: none; border-radius: 50px; font-weight: bold;
-            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
-            align-items:center; justify-content: center;
-        }
-        .btn-docs:hover { 
-            background: var(--soft-blue); transform: scale(1.05); 
-            border: var(--navy-blue) 2px solid;
-            color: var(--navy-blue);
-        }
-        .btn-demo{
-            display: inline-block; padding: 15px 35px; background: var(--soft-blue); 
-            color: var(--navy-blue); text-decoration: none; border-radius: 50px; font-weight: bold;
-            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
-            align-items:center; justify-content: center;
-        }
-        .btn-demo:hover { 
-            transform: scale(1.05); 
-            border: var(--navy-blue) 2px solid;
-        }
-        .btn-git {
-            display: inline-flex; padding: 12px 25px; background-color: var(--dark); 
-            color: var(--sand); text-decoration: none; border-radius: 50px;
-            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
-            align-items:center; justify-content: center;
-        }
-        .btn-git:hover {
-            background: var(--soft-blue); transform: scale(1.05); 
-            border: var(--navy-blue) 2px solid;
-            color: var(--navy-blue);
-        }
+.section-card {
+    background: var(--sand);
+    width: 100%;
+    max-width: 1000px;
+    padding: 60px;
+    border-radius: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    min-height: 80vh;
+    /* Chaque section prend presque tout l'écran */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--navy-blue);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 6px;
+    background: var(--navy-blue);
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+/* --- GRILLES PROJETS & STAGES --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    border-bottom: 8px solid var(--navy-blue);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(54, 54, 120, 0.2);
+}
+
+/* --- pop up --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 42, 68, 0.8);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--sand);
+    padding: 50px;
+    border-radius: 35px;
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--navy-blue);
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--navy-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--dark);
+    transform: scale(1.05);
+}
+
+.titre-popup {
+    color: var(--pop-blue);
+    font-size: x-large;
+    margin-bottom: 20px;
+}
+
+.btn-container-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    gap: 10px;
+}
+
+.btn-docs {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--navy-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-docs:hover {
+    background: var(--soft-blue);
+    transform: scale(1.05);
+    border: var(--navy-blue) 2px solid;
+    color: var(--navy-blue);
+}
+
+.btn-demo {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--soft-blue);
+    color: var(--navy-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-demo:hover {
+    transform: scale(1.05);
+    border: var(--navy-blue) 2px solid;
+}
+
+.btn-git {
+    display: inline-flex;
+    padding: 12px 25px;
+    background-color: var(--dark);
+    color: var(--sand);
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-git:hover {
+    background: var(--soft-blue);
+    transform: scale(1.05);
+    border: var(--navy-blue) 2px solid;
+    color: var(--navy-blue);
+}
 
 
 /* --- Spécifique pour les sections --- */
 
-    /* --- SECTION MOI --- */
-        /* Alignement côte à côte */
-        .info {
-            display: flex;
-            gap: 40px; /* Espace entre les deux colonnes */
-            margin-top: 20px;
-            flex-wrap: wrap; /* Pour que ça passe l'un sous l'autre sur petit écran */
-        }
+/* --- SECTION MOI --- */
+/* Alignement côte à côte */
+.info {
+    display: flex;
+    gap: 40px;
+    /* Espace entre les deux colonnes */
+    margin-top: 20px;
+    flex-wrap: wrap;
+    /* Pour que ça passe l'un sous l'autre sur petit écran */
+}
 
-        .un, .deux {
-            flex: 1; /* prend la même largeur */
-            min-width: 250px; /* Largeur minimum avant de passer à la ligne */
-        }
+.un,
+.deux {
+    flex: 1;
+    /* prend la même largeur */
+    min-width: 250px;
+    /* Largeur minimum avant de passer à la ligne */
+}
 
-        #diplome {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: 10px;
-        }
+#diplome {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
 
-        #diplome li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-        }
+#diplome li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+}
 
-        /* On ajoute des puces bleues personnalisées */
-        #diplome li::before {
-            content: "•";
-            color: var(--navy-blue);
-            font-weight: bold;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-        .btn-container {
-            display: flex;
-            justify-content: center; 
-            align-items: center;                
-            margin-top: 40px;       
-            width: 100%;
-        }
+/* On ajoute des puces bleues personnalisées */
+#diplome li::before {
+    content: "•";
+    color: var(--navy-blue);
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
 
-        .btn-cv {
-            display: inline-block; padding: 15px 35px; background: var(--navy-blue);
-            color: white; text-decoration: none; border-radius: 50px; font-weight: bold;
-            margin-top: 20px; transition: 0.3s; border: none; cursor: pointer;
-            align-items:center; justify-content: center;
-        }
-        .btn-cv:hover { 
-            background: var(--soft-blue); transform: scale(1.05); 
-            border: var(--navy-blue) 2px solid;
-            color: var(--navy-blue);
-        }
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+}
 
-    /* --- SECTION PARCOURS (ET LES TIMELINES)  --- */
+.btn-cv {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--navy-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* On s'assure que le container laisse assez de place à gauche pour la date */
-        .timeline-column {
-            width: 100%;
-            max-width: 750px; 
-            position: relative;
-            padding-left: 25px; /* Augmenté pour laisser de la place à la date à gauche */
-            margin: 0 auto;
-        }
+.btn-cv:hover {
+    background: var(--soft-blue);
+    transform: scale(1.05);
+    border: var(--navy-blue) 2px solid;
+    color: var(--navy-blue);
+}
 
-        /* La ligne verticale décalée pour correspondre au nouveau padding */
-        .timeline-column::before {
-            content: '';
-            position: absolute;
-            left: 1px; /* Aligné avec les points */
-            top: 10px;
-            bottom: 0;
-            width: 3px;
-            background: var(--navy-blue);
-            opacity: 0.15;
-        }
+/* --- SECTION PARCOURS (ET LES TIMELINES)  --- */
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            width: 100%;
-        }
+/* On s'assure que le container laisse assez de place à gauche pour la date */
+.timeline-column {
+    width: 100%;
+    max-width: 750px;
+    position: relative;
+    padding-left: 25px;
+    /* Augmenté pour laisser de la place à la date à gauche */
+    margin: 0 auto;
+}
 
-        /* La date positionnée à gauche de la ligne */
-        .timeline-date {
-            position: absolute;
-            left: -150px; /* Pousse la date à gauche de la ligne */
-            top: 45px;    /* Aligné avec le haut de la carte */
-            width: 110px; /* Largeur fixe pour un alignement propre */
-            text-align: right;
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: var(--navy-blue);
-        }
+/* La ligne verticale décalée pour correspondre au nouveau padding */
+.timeline-column::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    /* Aligné avec les points */
+    top: 10px;
+    bottom: 0;
+    width: 3px;
+    background: var(--navy-blue);
+    opacity: 0.15;
+}
 
-        .date-pro {
-            color: var(--pop-blue);
-        }
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+}
 
-        /* Le point sur la ligne */
-        .timeline-dot {
-            position: absolute;
-            left: -30px; /* Ajusté par rapport au padding-left de la colonne */
-            top: 45px;
-            width: 16px;
-            height: 16px;
-            background: var(--navy-blue);
-            border-radius: 50%;
-            border: 3px solid white;
-            z-index: 2;
-        }
+/* La date positionnée à gauche de la ligne */
+.timeline-date {
+    position: absolute;
+    left: -150px;
+    /* Pousse la date à gauche de la ligne */
+    top: 45px;
+    /* Aligné avec le haut de la carte */
+    width: 110px;
+    /* Largeur fixe pour un alignement propre */
+    text-align: right;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--navy-blue);
+}
 
-        .dot-pro { background: var(--pop-blue); } 
+.date-pro {
+    color: var(--pop-blue);
+}
 
-        /* La carte reste centrée par rapport à la colonne */
-        .timeline-card {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            border-bottom: 6px solid var(--navy-blue);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            width: 100%;
-            box-sizing: border-box;
-        }
+/* Le point sur la ligne */
+.timeline-dot {
+    position: absolute;
+    left: -30px;
+    /* Ajusté par rapport au padding-left de la colonne */
+    top: 45px;
+    width: 16px;
+    height: 16px;
+    background: var(--navy-blue);
+    border-radius: 50%;
+    border: 3px solid white;
+    z-index: 2;
+}
 
-        .card-pro {
-            border-bottom: 8px solid var(--pop-blue) !important;
-        }
+.dot-pro {
+    background: var(--pop-blue);
+}
 
-        .lieux {
-            color: var(--navy-blue);
-            margin-top: 5px;
-            font-size: smaller;
-        }
+/* La carte reste centrée par rapport à la colonne */
+.timeline-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    border-bottom: 6px solid var(--navy-blue);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
 
-        .lieux-pro {
-            color: var(--pop-blue);
-            margin-top: 5px;
-            font-size: smaller;
-        }
+.card-pro {
+    border-bottom: 8px solid var(--pop-blue) !important;
+}
 
-        #parcours p,
-        #stage p
-        {
-            font-size: smaller;
-        }
-        /* --- */
-        #bts-sio::before { content: ''; display: block; width: 60px; height: 6px; background: var(--navy-blue); margin-bottom: 15px; border-radius: 10px; }
-        
-        .titre-option{
-            color: var(--navy-blue);
-            margin-bottom: 8px;
-        }
+.lieux {
+    color: var(--navy-blue);
+    margin-top: 5px;
+    font-size: smaller;
+}
 
-        #SISR,
-        #SLAM {
-            background-color: var(--soft-blue);
-            border-radius: 10px;
-            padding: 20px;
-        }
+.lieux-pro {
+    color: var(--pop-blue);
+    margin-top: 5px;
+    font-size: smaller;
+}
 
-        /* Conteneur des deux options */
-        .option {
-            display: flex;
-            gap: 20px; /* Espace entre les deux cartes */
-            margin-top: 30px;
-            justify-content: space-between;
-        }
+#parcours p,
+#stage p {
+    font-size: smaller;
+}
 
-        /* Style commun aux cartes SISR et SLAM */
-        .option-card {
-            flex: 1; /* Pour qu'elles fassent la même largeur */
-            background: white;
-            padding: 15px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
+/* --- */
+#bts-sio::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 6px;
+    background: var(--navy-blue);
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
 
-        .option-card:hover {
-            transform: translateY(-5px);
-        }
+.titre-option {
+    color: var(--navy-blue);
+    margin-bottom: 8px;
+}
 
-        /* --- SECTION VEILLE  --- */
-        .card-veille {
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
-            border-bottom: 8px solid var(--navy-blue);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-        #veille-titre {
-            color: var(--navy-blue);
-            font-size: larger;
-            margin-bottom: 10px;
-        }
+#SISR,
+#SLAM {
+    background-color: var(--soft-blue);
+    border-radius: 10px;
+    padding: 20px;
+}
 
-        /* --- SECTION CONTACT  --- */
-        .contact-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Garde le titre au centre */
-        }
+/* Conteneur des deux options */
+.option {
+    display: flex;
+    gap: 20px;
+    /* Espace entre les deux cartes */
+    margin-top: 30px;
+    justify-content: space-between;
+}
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%; /* Prend toute la largeur du parent */
-            box-sizing: border-box; /* Évite que les paddings ne fassent déborder */
-        }
+/* Style commun aux cartes SISR et SLAM */
+.option-card {
+    flex: 1;
+    /* Pour qu'elles fassent la même largeur */
+    background: white;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
 
-        /* Style des champs pour qu'ils soient propres sur toute la largeur */
-        .contact-form input, 
-        .contact-form textarea {
-            width: 100%; 
-            padding: 15px;
-            border-radius: 15px;
-            border: 2px solid var(--soft-blue);
-            background-color: white;
-            box-sizing: border-box; /* Crucial pour la largeur 100% */
-        }
+.option-card:hover {
+    transform: translateY(-5px);
+}
 
-        .contact-form .btn {
-            width: 100%; /* Le bouton prend aussi toute la largeur */
-        }
+/* --- SECTION VEILLE  --- */
+.card-veille {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    border-bottom: 8px solid var(--navy-blue);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+#veille-titre {
+    color: var(--navy-blue);
+    font-size: larger;
+    margin-bottom: 10px;
+}
+
+/* --- SECTION CONTACT  --- */
+.contact-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Garde le titre au centre */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    /* Prend toute la largeur du parent */
+    box-sizing: border-box;
+    /* Évite que les paddings ne fassent déborder */
+}
+
+/* Style des champs pour qu'ils soient propres sur toute la largeur */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--soft-blue);
+    background-color: white;
+    box-sizing: border-box;
+    /* Crucial pour la largeur 100% */
+}
+
+.contact-form .btn {
+    width: 100%;
+    /* Le bouton prend aussi toute la largeur */
+}
