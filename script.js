@@ -42,8 +42,8 @@ function closeModal() {
 }
 
 // Fonction contacte 
-(function () {
-    // Remplace par ta clé publique disponible dans ton compte EmailJS
+(function contact() {
+
     emailjs.init("EIgAYs67fN_I0WlKb");
 })();
 
