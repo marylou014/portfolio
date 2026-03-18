@@ -198,6 +198,29 @@ h2::after {
     box-shadow: 0 20px 40px rgba(54, 54, 120, 0.2);
 }
 
+.btn-telecharger {
+    display: inline-block;
+    padding: 10px 25px;
+    background: var(--navy-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 5px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-telecharger:hover {
+    background: var(--soft-blue);
+    transform: scale(1.05);
+    border: var(--navy-blue) 2px solid;
+    color: var(--navy-blue);
+}
+
 /* --- pop up --- */
 .modal {
     display: none;
@@ -512,7 +535,7 @@ h2::after {
 .lieux-pro {
     color: var(--pop-blue);
     margin-top: 5px;
-    font-size: smaller;
+    font-size: small;
 }
 
 #parcours p,
