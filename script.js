@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Fonction pour charger les fichiers externes
     const includes = document.querySelectorAll('[data-include]');
     includes.forEach(el => {
@@ -27,7 +27,7 @@ function loadAndOpenModal(title, filePath) {
             // 2. On remplit la modale avec le titre et le contenu récupéré
             document.getElementById('modalTitle').innerHTML = title;
             document.getElementById('modalBody').innerHTML = htmlContent;
-            
+
             // 3. On affiche la modale
             document.getElementById('modal').style.display = "flex";
         })
@@ -40,3 +40,39 @@ function loadAndOpenModal(title, filePath) {
 function closeModal() {
     document.getElementById('modal').style.display = "none";
 }
+
+// Fonction contacte 
+(function () {
+    // Remplace par ta clé publique disponible dans ton compte EmailJS
+    emailjs.init("EIgAYs67fN_I0WlKb");
+})();
+
+window.onload = function () {
+    const contactForm = document.getElementById('contact-form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Récupération du bouton pour changer son état
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Envoi en cours...";
+            btn.disabled = true;
+
+            // Paramètres : ServiceID, TemplateID, l'élément formulaire
+            emailjs.sendForm('service_g445ksp', 'template_a7837v9', this)
+                .then(function () {
+                    alert('Message envoyé avec succès !');
+                    contactForm.reset();
+                }, function (error) {
+                    alert('Erreur lors de l\'envoi : ' + JSON.stringify(error));
+                })
+                .finally(() => {
+                    // Remet le bouton à son état initial
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                });
+        });
+    }
+};

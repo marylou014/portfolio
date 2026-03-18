@@ -1,10 +1,15 @@
 <h2>Contact</h2>
 <div class="contact-container">
-    <form class="contact-form">
-        <input type="text" placeholder="Votre nom" style="padding: 15px; border-radius: 15px; border: 2px solid var(--soft-blue);">
-        <input type="email" placeholder="Email" style="padding: 15px; border-radius: 15px; border: 2px solid var(--soft-blue);">
-        <input type="text" placeholder="Objet du message" style="padding: 15px; border-radius: 15px; border: 2px solid var(--soft-blue);">
-        <textarea placeholder="Votre message" rows="5" style="padding: 15px; border-radius: 15px; border: 2px solid var(--soft-blue);"></textarea>
+    <form id="contact-form" class="contact-form">
+        <input type="text" name="user_name" placeholder="Votre nom" required
+            style="padding: 15px; border-radius: 15px; border: 2px solid var(--soft-blue);">
+        <input type="email" name="user_email" placeholder="Email" required
+            style="padding: 15px; border-radius: 15px; border: 2px solid var(--soft-blue);">
+        <input type="text" name="subject" placeholder="Objet du message" required
+            style="padding: 15px; border-radius: 15px; border: 2px solid var(--soft-blue);">
+        <textarea name="message" placeholder="Votre message" rows="5" required
+            style="padding: 15px; border-radius: 15px; border: 2px solid var(--soft-blue);"></textarea>
+
         <button type="submit" class="btn">Envoyer le message</button>
     </form>
 </div>
