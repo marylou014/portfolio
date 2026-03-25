@@ -1,6 +1,14 @@
+// 1. Initialisation EmailJS
+(function () {
+    emailjs.init("EIgAYs67fN_I0WlKb");
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Fonction pour charger les fichiers externes
+
+    // --- PARTIE 1 : CHARGEMENT DES SECTIONS ---
     const includes = document.querySelectorAll('[data-include]');
+    let loadedCount = 0;
+
     includes.forEach(el => {
         const file = el.getAttribute('data-include');
         fetch(file)
@@ -10,69 +18,72 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(data => {
                 el.innerHTML = data;
+                loadedCount++;
+
+                // Une fois que tout est chargé, on lie le formulaire
+                if (loadedCount === includes.length) {
+                    initContactForm();
+                }
             })
             .catch(err => console.error(err));
     });
+
+    // --- PARTIE 2 : ANIMATION DU TITRE ---
+    const titleElement = document.getElementById('animated-title');
+    if (titleElement) {
+        const text = titleElement.textContent.trim();
+        titleElement.textContent = '';
+
+        text.split('').forEach((char, index) => {
+            const span = document.createElement('span');
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            span.classList.add('animated-letter');
+            span.style.animationDelay = `${index * 0.1}s`;
+            titleElement.appendChild(span);
+        });
+        console.log("Animation du titre chargée !");
+    }
 });
 
-// Fonction pop-up 
-function loadAndOpenModal(title, filePath) {
-    // 1. On va chercher le contenu du fichier HTML
-    fetch(filePath)
-        .then(response => {
-            if (!response.ok) throw new Error("Fichier introuvable");
-            return response.text();
-        })
-        .then(htmlContent => {
-            // 2. On remplit la modale avec le titre et le contenu récupéré
-            document.getElementById('modalTitle').innerHTML = title;
-            document.getElementById('modalBody').innerHTML = htmlContent;
-
-            // 3. On affiche la modale
-            document.getElementById('modal').style.display = "flex";
-        })
-        .catch(error => {
-            console.error("Erreur lors du chargement de la modale :", error);
-        });
-}
-
-
-function closeModal() {
-    document.getElementById('modal').style.display = "none";
-}
-
-// Fonction contacte 
-(function contact() {
-
-    emailjs.init("EIgAYs67fN_I0WlKb");
-})();
-
-window.onload = function () {
+// --- PARTIE 3 : LOGIQUE DU FORMULAIRE ---
+function initContactForm() {
     const contactForm = document.getElementById('contact-form');
-
     if (contactForm) {
         contactForm.addEventListener('submit', function (event) {
             event.preventDefault();
-
-            // Récupération du bouton pour changer son état
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerText;
+
             btn.innerText = "Envoi en cours...";
             btn.disabled = true;
 
-            // Paramètres : ServiceID, TemplateID, l'élément formulaire
             emailjs.sendForm('service_g445ksp', 'template_a7837v9', this)
-                .then(function () {
+                .then(() => {
                     alert('Message envoyé avec succès !');
                     contactForm.reset();
-                }, function (error) {
-                    alert('Erreur lors de l\'envoi : ' + JSON.stringify(error));
+                }, (error) => {
+                    alert('Erreur : ' + JSON.stringify(error));
                 })
                 .finally(() => {
-                    // Remet le bouton à son état initial
                     btn.innerText = originalText;
                     btn.disabled = false;
                 });
         });
     }
-};
+}
+
+// --- PARTIE 4 : MODALES ---
+function loadAndOpenModal(title, filePath) {
+    fetch(filePath)
+        .then(response => response.text())
+        .then(htmlContent => {
+            document.getElementById('modalTitle').innerHTML = title;
+            document.getElementById('modalBody').innerHTML = htmlContent;
+            document.getElementById('modal').style.display = "flex";
+        })
+        .catch(err => console.error(err));
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = "none";
+}
