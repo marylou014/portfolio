@@ -681,14 +681,6 @@ h2::after {
     margin-bottom: 0.3rem;
 }
 
-.veille-section .sous-titre {
-    font-size: 14px;
-    color: #5a6a8a;
-    margin-bottom: 1.5rem;
-    max-width: 520px;
-    line-height: 1.6;
-}
-
 .grid-veilles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -696,16 +688,17 @@ h2::after {
 }
 
 .card-veille {
-    background: #FFFDF7;
-    border: 1.5px solid #D9D0BC;
-    border-radius: 16px;
+    background: #ffffff;
+    border-radius: 25px;
+    border-bottom: 8px solid var(--navy-blue);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 .card-top {
-    background: #1a2744;
+    background:  rgb(61, 100, 170);
     padding: 1.2rem 1.4rem 1rem;
 }
 
@@ -717,10 +710,11 @@ h2::after {
 }
 
 .icon-bubble {
+    color: var(--sand);
     width: 38px;
     height: 38px;
     border-radius: 10px;
-    background: #2e3f6e;
+    background: var(--navy-blue);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -795,39 +789,29 @@ h2::after {
 }
 
 .btn-docs {
-    background: #1a2744;
+    background: var(--navy-blue);
     color: #F5F0E8;
     border: none;
-    border-radius: 8px;
-    padding: 7px 14px;
-    font-size: 12px;
+    border-radius: 50px;
+    padding: 10px 17px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
 }
 
 .btn-docs:hover {
-    background: #2e3f6e;
+    background: var(--soft-blue);
+    transform: scale(1.05);
+    border: var(--navy-blue) 2px solid;
+    color: var(--navy-blue);
 }
 
-.card-veille.wip .card-top {
-    background: #8a9aaa;
-}
-
-.card-veille.wip .icon-bubble {
-    background: #6a7a8a;
-}
-
-.card-veille.wip .card-badge {
-    background: #b0bbc8;
-    color: #2c3a4a;
-}
-
-.card-veille.wip .btn-docs {
-    background: #8a9aaa;
-    cursor: default;
+.card-veille2 .card-top {
+    background: #677f96;
+    padding: 1.2rem 1.4rem 1rem;
 }
 
 /* --- SECTION CONTACT  --- */
