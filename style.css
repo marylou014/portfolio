@@ -674,19 +674,160 @@ h2::after {
 }
 
 /* --- SECTION VEILLE  --- */
-.card-veille {
-    background: white;
-    padding: 30px;
-    border-radius: 25px;
-    border-bottom: 8px solid var(--navy-blue);
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
+.veille-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a2744;
+    margin-bottom: 0.3rem;
 }
 
-#veille-titre {
-    color: var(--navy-blue);
-    font-size: larger;
-    margin-bottom: 10px;
+.veille-section .sous-titre {
+    font-size: 14px;
+    color: #5a6a8a;
+    margin-bottom: 1.5rem;
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+.grid-veilles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+}
+
+.card-veille {
+    background: #FFFDF7;
+    border: 1.5px solid #D9D0BC;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top {
+    background: #1a2744;
+    padding: 1.2rem 1.4rem 1rem;
+}
+
+.card-top-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.6rem;
+}
+
+.icon-bubble {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #2e3f6e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card-top h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #F5F0E8;
+}
+
+.card-badge {
+    display: inline-block;
+    background: #4a7fc1;
+    color: #E6F1FB;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 99px;
+}
+
+.card-body {
+    padding: 1rem 1.4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.card-desc {
+    font-size: 13px;
+    color: #3a4a6a;
+    line-height: 1.6;
+}
+
+.tags-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8a9aba;
+    margin-bottom: 6px;
+}
+
+.tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    border: 1px solid #C5BBAA;
+    color: #4a5a7a;
+    background: #F0EBE0;
+}
+
+.card-footer {
+    padding: 0.8rem 1.4rem;
+    border-top: 1px solid #E8E0D0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-meta {
+    font-size: 11px;
+    color: #9aaaba;
+}
+
+.btn-docs {
+    background: #1a2744;
+    color: #F5F0E8;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-docs:hover {
+    background: #2e3f6e;
+}
+
+.card-veille.wip .card-top {
+    background: #8a9aaa;
+}
+
+.card-veille.wip .icon-bubble {
+    background: #6a7a8a;
+}
+
+.card-veille.wip .card-badge {
+    background: #b0bbc8;
+    color: #2c3a4a;
+}
+
+.card-veille.wip .btn-docs {
+    background: #8a9aaa;
+    cursor: default;
 }
 
 /* --- SECTION CONTACT  --- */
