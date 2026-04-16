@@ -801,7 +801,6 @@ h2::after {
     align-items: center;
     gap: 5px;
     margin-top: 0;
-    /* ← annule le margin global */
 }
 
 .card-footer .btn-docs:hover {
@@ -809,11 +808,6 @@ h2::after {
     transform: scale(1.05);
     border: var(--navy-blue) 2px solid;
     color: var(--navy-blue);
-}
-
-.card-veille2 {
-    color: #1a2744;
-    overflow: visible;
 }
 
 
