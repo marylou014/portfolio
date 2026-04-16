@@ -44,6 +44,7 @@ Pour faciliter la maintenance, j'ai séparé chaque section du site dans le doss
 * **HTML5 / CSS3** 
 * **JavaScript** : Gestion du chargement dynamique et des animations interactives.
 * **Google Fonts** : Pour les jolies typographies
+* **Bootstrap** : Pour les intégration de logo svg
 
 ### Visualiser mon portfolio ?
 
