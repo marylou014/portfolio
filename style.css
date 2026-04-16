@@ -698,7 +698,7 @@ h2::after {
 }
 
 .card-top {
-    background:  rgb(61, 100, 170);
+    background: rgb(61, 100, 170);
     padding: 1.2rem 1.4rem 1rem;
 }
 
@@ -788,7 +788,7 @@ h2::after {
     color: #9aaaba;
 }
 
-.btn-docs {
+.card-footer .btn-docs {
     background: var(--navy-blue);
     color: #F5F0E8;
     border: none;
@@ -800,19 +800,22 @@ h2::after {
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-top: 0;
+    /* ← annule le margin global */
 }
 
-.btn-docs:hover {
+.card-footer .btn-docs:hover {
     background: var(--soft-blue);
     transform: scale(1.05);
     border: var(--navy-blue) 2px solid;
     color: var(--navy-blue);
 }
 
-.card-veille2 .card-top {
-    background: #677f96;
-    padding: 1.2rem 1.4rem 1rem;
+.card-veille2 {
+    color: #1a2744;
+    overflow: visible;
 }
+
 
 /* --- SECTION CONTACT  --- */
 .contact-container {
