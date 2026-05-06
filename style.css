@@ -1,10 +1,22 @@
+
 :root {
+    --sidebar-width: 280px;
+
     --sand: #FDFBF7;
     --navy-blue: #0052a3;
     --soft-blue: #E0EAFC;
     --pop-blue: #6b9efd;
     --dark: #2B2D42;
-    --sidebar-width: 280px;
+    
+    --beige:    #faf5ec;
+    --navy:     #1a2744;
+    --blue:     #4a9eff;
+    --silver:   #b8c4d4;
+    --sage:     #7fb99a;
+    --lavender: #b59cd8;
+    --pink:     #f5a0c8;
+    --yellow:   #f5c842;
+    --orange:   #f5a845;
 }
 
 * {
@@ -39,64 +51,89 @@ body {
     position: relative;
     z-index: 101;
 }
+.acceuil::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #c8bfaf 1.2px, transparent 1.2px);
+    background-size: 26px 26px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-center {
+    position: relative;
+    z-index: 10;
+    max-width: 560px;
+    padding: 24px;
+}
+
+#animated-title {
+    font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.animated-subtitle {
+    font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+    color: var(--navy);
+    opacity: 0.72;
+    font-weight: 400;
+}
+
+.hero-icon {
+    position: absolute;
+    z-index: 5;
+    opacity: 0; /* Géré par JS */
+}
+
+/* Animation de flottement pour les icônes une fois apparues */
+@keyframes wave {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(1deg); }
+}
+
+.floating {
+    animation: wave 3s ease-in-out infinite;
+}
 
 #animated-title {
     font-size: 3.5rem;
     font-weight: 800;
     color: var(--navy-blue);
-    /* Couleur de secours si le dégradé échoue */
     margin-bottom: 20px;
-    min-height: 1.2em;
-    /* On ne cache plus avec visibility, on laisse le JS gérer l'opacité des lettres */
 }
 
-.animated-letter {
-    display: inline-block !important;
-    opacity: 0;
-    transform: translateY(20px) scale(0.5);
-    filter: blur(10px);
-    animation: bubbleAppear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-@keyframes bubbleAppear {
-    0% {
-        opacity: 0;
-        transform: translateY(20px) scale(0.5);
-        filter: blur(10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
-}
-
-/* SOUS-TITRE */
+/* FLECHE */
+/* 1. L'apparition (monte de 20px vers sa position finale) */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.animated-subtitle {
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 3s forwards;
+/* 2. Le rebond (part de sa position finale et bouge de haut en bas) */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-8px); }
 }
 
-/* FLECHE */
-
 .scroll-arrow {
-    display: inline-block;
-    animation: bounce 2s infinite;
+    display: inline-block; /* OBLIGATOIRE pour animer un lien <a> */
     opacity: 0;
-    animation: bounce 2s infinite, fadeInUp 0.5s ease-out 2s forwards;
+    /* On combine : fadeInUp (0.8s) PUIS bounce (2s, tourne en boucle) */
+    animation: 
+        fadeInUp 0.8s ease-out forwards, 
+        bounce 2s infinite 0.8s; 
 }
 
 /* --- SIDEBAR (NAV) --- */

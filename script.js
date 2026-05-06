@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(err => console.error(err));
     });
 
-    // --- PARTIE 2 : ANIMATION DU TITRE ---
+    // --- PARTIE 2 : ANIMATION DU HERO ---
     const titleElement = document.getElementById('animated-title');
     if (titleElement) {
         const text = titleElement.textContent.trim();
@@ -44,6 +44,59 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Animation du titre chargée !");
     }
 });
+
+(function () {
+    const acceuil  = document.querySelector('.acceuil');
+    const icons    = document.querySelectorAll('.hero-icon');
+    const arrow    = document.getElementById('scroll-arrow');
+
+    if (!acceuil || !icons.length) return;
+
+    const cRect = acceuil.getBoundingClientRect();
+    const cx    = cRect.width  / 2;
+    const cy    = cRect.height / 2;
+
+  // Placement initial invisible au centre
+    icons.forEach(el => {
+        const r    = el.getBoundingClientRect();
+        const elCx = r.left - cRect.left + r.width  / 2;
+        const elCy = r.top  - cRect.top  + r.height / 2;
+        const dx   = cx - elCx;
+        const dy   = cy - elCy;
+
+        el.style.transform  = `translate(${dx}px, ${dy}px) scale(0)`;
+        el.style.opacity    = '0';
+    });
+
+    // Animation après chargement
+    window.addEventListener('load', () => {
+        // Liste exhaustive de tous tes éléments par ID
+        const ORDER = [
+        'star-1','star-2','star-3','star-4','star-5','star-6',
+        'star-7','star-8','star-9','star-10','star-11','star-12',
+        'icon-laptop','icon-journal','icon-books','mini-me'
+        ];
+
+        ORDER.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        setTimeout(() => {
+            el.style.transition = `transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 400ms ease`;
+            el.style.transform  = 'translate(0, 0) scale(1)';
+            el.style.opacity    = '1';
+            
+            // Ajout du flottement après l'apparition
+            setTimeout(() => el.classList.add('floating'), 700);
+        }, i * 60);
+        });
+
+        setTimeout(() => {
+        if (arrow) arrow.classList.add('visible');
+        }, (ORDER.length * 60) + 600);
+    });
+    })();
+
 
 // --- PARTIE 3 : LOGIQUE DU FORMULAIRE ---
 function initContactForm() {
