@@ -512,6 +512,24 @@ h2::after {
     color: var(--navy-blue);
 }
 
+.btn-résumer {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 35px;
+    background: var(--pop-blue);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-résumer:hover {
+    background: var(--navy-blue);
+    transform: scale(1.05);
+}
+
 .btn-demo {
     display: inline-block;
     padding: 15px 35px;
