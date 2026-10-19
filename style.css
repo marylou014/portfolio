@@ -945,6 +945,7 @@ h2::after {
     background-color: white;
     box-sizing: border-box;
     /* Crucial pour la largeur 100% */
+    resize: vertical;
 }
 
 .contact-form .btn {
