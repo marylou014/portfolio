@@ -572,7 +572,136 @@ h2::after {
     border: var(--navy-blue) 2px solid;
     color: var(--navy-blue);
 }
+/* --- FILTRES & TAGS DES PROJETS --- */
+.filtres {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0 0 25px;
+}
 
+.filtres-ligne {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.filtres-label {
+    min-width: 105px;
+    color: var(--navy-blue);
+    font-weight: 600;
+}
+
+.filtre-btn {
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 2px solid var(--navy-blue);
+    background: var(--soft-blue);
+    color: var(--navy-blue);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filtre-btn:hover {
+    transform: scale(1.05);
+}
+
+.filtre-btn.active {
+    background: var(--navy-blue);
+    color: white;
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="php"]:hover {
+    background: color-mix(in srgb, var(--lavender) 35%, white);
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="php"].active {
+    background: color-mix(in srgb, var(--lavender) 35%, white);
+    border-color: transparent;
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="sql"]:hover {
+    background: color-mix(in srgb, var(--sage) 35%, white);
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="sql"].active {
+    background: color-mix(in srgb, var(--sage) 35%, white);
+    border-color: transparent;
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="html-css"]:hover {
+    background: color-mix(in srgb, var(--pink) 35%, white);
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="html-css"].active {
+    background: color-mix(in srgb, var(--pink) 35%, white);
+    border-color: transparent;
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="python"]:hover {
+    background: color-mix(in srgb, var(--yellow) 40%, white);
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="python"].active {
+    background: color-mix(in srgb, var(--yellow) 40%, white);
+    border-color: transparent;
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="ia"]:hover {
+    background: color-mix(in srgb, var(--blue) 30%, white);
+    color: var(--navy-blue);
+}
+
+.filtre-btn[data-groupe="technologie"][data-filtre="ia"].active {
+    background: color-mix(in srgb, var(--blue) 30%, white);
+    border-color: transparent;
+    color: var(--navy-blue);
+}
+
+.projet-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0 20px 20px 20px;
+}
+
+.projet-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 99px;
+    background: var(--soft-blue);
+    color: var(--navy-blue);
+}
+
+#filtres-annee {
+    align-self: stretch;
+    justify-content: center;
+}
+
+.projet-tag[data-tech="php"] { background: color-mix(in srgb, var(--lavender) 35%, white); }
+.projet-tag[data-tech="sql"] { background: color-mix(in srgb, var(--sage) 35%, white); }
+.projet-tag[data-tech="html-css"] { background: color-mix(in srgb, var(--pink) 35%, white); }
+.projet-tag[data-tech="python"] { background: color-mix(in srgb, var(--yellow) 40%, white); }
+.projet-tag[data-tech="ia"] { background: color-mix(in srgb, var(--blue) 30%, white); }
+.projet-tag.tag-annee { background: var(--soft-blue); }
+
+.projet-card.cache {
+    display: none;
+}
 
 /* --- Spécifique pour les sections --- */
 

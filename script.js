@@ -185,3 +185,37 @@ function initStarDecorations() {
         createStars(card, 3);
     });
 }
+// --- PARTIE 6 : FILTRES DES PROJETS ---
+// Délégation d'événement : fonctionne même si projets.html est injecté après coup
+document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.filtre-btn');
+    const filtres = btn?.closest('#filtres-projets');
+    if (!filtres) return;
+
+    const filtre = btn.dataset.filtre;
+    const groupe = btn.dataset.groupe;
+
+    if (groupe === 'annee') {
+        filtres.querySelectorAll('[data-groupe="annee"]').forEach(b => {
+            const estActif = b === btn;
+            b.classList.toggle('active', estActif);
+            b.setAttribute('aria-pressed', String(estActif));
+        });
+    } else {
+        btn.classList.toggle('active');
+        btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
+    }
+
+    const filtresActifs = {
+        annee: filtres.querySelector('[data-groupe="annee"].active')?.dataset.filtre,
+        technologie: [...filtres.querySelectorAll('[data-groupe="technologie"].active')].map(b => b.dataset.filtre)
+    };
+
+    filtres.closest('#projets')?.querySelectorAll('.projet-card').forEach(card => {
+        const tags = (card.dataset.tags || '').split(/\s+/);
+        const correspondAnnee = filtresActifs.annee === 'all' || tags.includes(filtresActifs.annee);
+        const correspondTechnologie = !filtresActifs.technologie.length ||
+            filtresActifs.technologie.some(tag => tags.includes(tag));
+        card.classList.toggle('cache', !correspondAnnee || !correspondTechnologie);
+    });
+});
